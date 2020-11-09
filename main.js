@@ -12,40 +12,64 @@ var app = new Vue(
                 'https://media.motorbox.com/image/ferrari-812-superfast-al-posteriore-quattro-fanali-tondi/5/5/8/558356/558356-16x9-lg.jpg',
                 'https://www.yellowmotori.it/wp-content/uploads/2020/01/Lamborghini-Huracan-EVO-RWD-a.jpg',
                 'https://img3.stcrm.it/images/21152505/1200x/20200107-105927770-7181.jpg'
-            ]
+            ],
+
+            stop_autoplay: null
+
         },
 
         methods: {
 
-            prossima_immagine() {
 
-                this.indice += 1;
+            autoplay() {
 
-                if (this.indice == this.immagini.length) {
+                this.stop_autoplay = setInterval(() => {
 
-                    this.indice = 0;
-                }
+                    this.indice += 1;
 
+                    if (this.indice == this.immagini.length) {
+
+                        this.indice = 0;
+                    }
+
+                }, 3000)
             },
 
-            immagine_precedente() {
+            ferma_autoplay() {
 
-                this.indice -= 1;
-
-                if (this.indice < 0) {
-
-                    this.indice = this.immagini.length - 1;
-
-                }
-
+                clearInterval(this.stop_autoplay);
             },
 
+                prossima_immagine() {
 
-        }
+                    this.indice += 1;
 
+                    if (this.indice == this.immagini.length) {
 
+                        this.indice = 0;
+                    }
+                },
 
+                immagine_precedente() {
 
+                    this.indice -= 1;
 
+                    if (this.indice < 0) {
+
+                        this.indice = this.immagini.length - 1;
+
+                    }
+                },
+
+                clicco_pallino(indici_pallini) {
+
+                    this.indice = indici_pallini
+                }
+        },
+
+            created() {
+
+                this.autoplay();
+            },
     }
 );

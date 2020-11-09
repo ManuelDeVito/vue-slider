@@ -20,14 +20,14 @@
                 <div class="slider">
                     <img :src="immagini[indice]">
                     <div class="pallini">
-                        <i v-for="(immagine, indici) in immagini" class="fas fa-circle" :class = "indici == indice ? 'active' : '' "></i>
+                        <i @click="clicco_pallino(indici_pallini)" v-for="(immagine, indici_pallini) in immagini" class="fas fa-circle" :class = "indici_pallini == indice ? 'active' : '' "></i>
                     </div>
                 </div>
 
                 <div class="arrow-right">
                     <i @click="prossima_immagine()" class="fas fa-arrow-right fa-2x"></i>
                 </div>
-
+                <button @click="ferma_autoplay()" type="button" name="button">Stop Autoplay</button>
             </div>
 
         </div>

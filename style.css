@@ -46,7 +46,6 @@
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
 .pallini i {
@@ -55,4 +54,15 @@
 
 .pallini i.active {
     color: red;
+}
+
+button {
+    background-color: red;
+    padding: 20px;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+
 }
